@@ -1,8 +1,14 @@
   const express = require('express');
   const pool = require('./db');
   const app = express();
+  const cors = require('cors');
+
   // Para que Express entienda JSON
   app.use(express.json()); 
+
+  app.use(cors()); // <-- NUEVO: Activar CORS para que el script pueda conectarse
+  app.use(express.static('public')); // <-- NUEVO: Servir la carpeta con el index.html
+
 
 
   // Hola mundo
